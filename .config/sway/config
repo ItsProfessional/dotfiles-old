@@ -1,0 +1,338 @@
+### Variables
+
+# Logo key
+set $mod Mod1
+
+# Home row direction keys
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Terminal emulator
+set $term alacritty
+
+# Application launcher
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu j4-dmenu-desktop
+
+
+# Workspaces
+set $ws1 "1:Terminal"
+set $ws2 "2:Browser"
+set $ws3 "3:Discord"
+set $ws4 "4:Misc"
+set $ws5 "5:Games"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+### Output configuration
+
+    output * {
+        bg ~/.config/wall.png fill
+    }
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+
+    input type:pointer {
+        # disable mouse acceleration
+        accel_profile "flat" 
+        pointer_accel 0
+    }
+
+    input type:touchpad {
+        # disable mouse acceleration
+        accel_profile "flat"
+
+        # tone done mouse speed
+        pointer_accel 0.8 # set mouse sensitivity (between -1 and 1)
+        scroll_factor 0.1 
+        
+        # touchpad tapping
+        tap enabled
+
+        # natural scrolling
+        natural_scroll enabled
+
+        # disable touchpad when typing
+        dwt enabled
+    }
+
+    input type:keyboard {
+        # repeat delay and rate
+        repeat_delay 300
+        repeat_rate 25
+    }
+
+
+### Options
+
+    # Hide title bars
+    default_border pixel 2
+
+    # Gaps
+    gaps inner 10
+
+    # Hide cursor when typing
+    # seat * hide_cursor when-typing enable
+
+    # Automatically focus windows when they becomes urgent
+    focus_on_window_activation focus
+    
+    # Don't switch to windows when hovering over them
+    focus_follows_mouse no
+
+    # Set cursor
+    seat * xcursor_theme Breeze_Snow 24
+
+    # Colors
+    # class                 border  backgr. text    indicator child_border
+    client.focused          #1e1e1e #2c4685 #ffffff #1e1e1e   #285577 
+    client.focused_inactive #1e1e1e #1e1e1e #ffffff #484e50   #5f676a
+    client.unfocused        #1e1e1e #1e1e1e #888888 #292d2e   #222222
+    client.urgent           #2f343a #900000 #ffffff #900000   #900000
+    client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+    client.background       #ffffff
+
+### Window assignments
+    # Browser
+    assign      [app_id="chromium"]                $ws2
+    assign      [app_id="firefox"]                 $ws2
+    
+    # Discord
+    assign      [app_id="discord"]                 $ws3
+    
+    # Text editors
+    assign      [class="VSCodium"]                 $ws4
+    assign      [app_id="sublime_text"]            $ws4
+
+    # GIMP
+    assign      [class="Gimp-2.10"]                $ws4
+    
+    # Notes
+    assign      [app_id="obsidian"]                $ws4
+    
+    # Games
+    assign      [app_id="PollyMC"]                 $ws5
+    assign      [class="Minecraft"]                $ws5
+    for_window  [class="steam_app_"]               move to workspace $ws5
+    
+    # Music
+    for_window  [class="Spotify"]                  move to workspace $ws6
+
+### Autofocus
+    assign      [app_id="chromium"]                focus
+    for_window  [app_id="sublime-text"]            focus
+    for_window  [app_id="PollyMC"]                 focus
+    for_window  [class="Minecraft"]                focus; fullscreen enable
+    for_window  [class="steam_app_"]               focus
+
+### Key bindings
+
+# Basics:
+
+    # Start a terminal
+    bindsym $mod+Return fullscreen disable; exec $term
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Floating modifier
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exit
+
+# Moving around:
+
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    # Move the focused window
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+    # Focus previous window
+    bindsym $mod+o [con_mark=_last] focus
+
+# Workspaces:
+
+    # Switch to workspace
+    bindsym $mod+1 workspace number $ws1
+    bindsym $mod+2 workspace number $ws2
+    bindsym $mod+3 workspace number $ws3
+    bindsym $mod+4 workspace number $ws4
+    bindsym $mod+5 workspace number $ws5
+    bindsym $mod+6 workspace number $ws6
+    bindsym $mod+7 workspace number $ws7
+    bindsym $mod+8 workspace number $ws8
+    bindsym $mod+9 workspace number $ws9
+    bindsym $mod+0 workspace number $ws10
+
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number $ws1
+    bindsym $mod+Shift+2 move container to workspace number $ws2
+    bindsym $mod+Shift+3 move container to workspace number $ws3
+    bindsym $mod+Shift+4 move container to workspace number $ws4
+    bindsym $mod+Shift+5 move container to workspace number $ws5
+    bindsym $mod+Shift+6 move container to workspace number $ws6
+    bindsym $mod+Shift+7 move container to workspace number $ws7
+    bindsym $mod+Shift+8 move container to workspace number $ws8
+    bindsym $mod+Shift+9 move container to workspace number $ws9
+    bindsym $mod+Shift+0 move container to workspace number $ws10
+
+    # Go to previous workspace
+    bindsym $mod+Tab workspace back_and_forth
+    bindsym $mod+Escape workspace back_and_forth
+
+# Layout stuff:
+
+    # Split
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+Shift+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+# Scratchpad:
+
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+# Resizing containers:
+
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $right resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize grow height 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+# Function keys
+
+    # Brightness
+    bindsym XF86MonBrightnessDown exec --no-startup-id brillo -u 150000 -U 2 -q
+    bindsym XF86MonBrightnessUp exec --no-startup-id brillo -u 150000 -A 2 -q
+
+    # Volume
+    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+    # Media
+    bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+    bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+    bindsym XF86AudioNext exec --no-startup-id playerctl next
+
+    # Alternative bindings
+    bindsym $mod+f2 exec --no-startup-id brillo -U 2 -q
+    bindsym $mod+f3 exec --no-startup-id brillo -A 2 -q
+
+    bindsym $mod+f6 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym $mod+f7 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+    bindsym $mod+f8 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+    bindsym $mod+f9 exec --no-startup-id playerctl previous
+    bindsym $mod+f10 exec --no-startup-id playerctl play-pause
+    bindsym $mod+f11 exec --no-startup-id playerctl next
+
+# Misc things
+    
+    # Clear all notifications
+    bindsym $mod+semicolon exec makoctl dismiss -a
+
+    # Screenshot
+    bindsym $mod+p exec grimshot copy area
+    bindsym Print exec grimshot copy area
+    
+
+
+# Status Bar:
+
+bar { 
+     swaybar_command waybar
+}
+
+
+# Scripts:
+    # Autotiling: https://github.com/nwg-piotr/autotiling
+    exec --no-startup-id ~/.local/bin/autotiling
+    
+    # Transparency: https://github.com/swaywm/sway/blob/master/contrib/inactive-windows-transparency.py
+    exec --no-startup-id ~/.local/bin/inactive-windows-transparency
+
+    # Disable middle click paste: https://wiki.hyprland.org/FAQ/#how-to-disable-middle-click-paste
+    # exec --no-startup-id wl-paste -p --watch wl-copy -pc
+    exec --no-startup-id wl-paste --watch wl-copy -pc
+
+    # Allow root programs access to the display server: https://wiki.archlinux.org/title/Xhost#Usage
+    exec --no-startup-id xhost +SI:localuser:$(whoami)
+    exec --no-startup-id xhost +SI:localuser:root 
+
+# Daemons:
+    exec --no-startup-id xsettingsd -c ~/.config/xsettingsd/xsettingsd.conf
+    exec --no-startup-id lxpolkit
+    exec --no-startup-id mako
+
+# Autostart:
+    exec workspace 1:Terminal; exec alacritty; exec alacritty
+    exec firefox
+    exec discord
+
+
+include /etc/sway/config.d/*
+

@@ -1,0 +1,15 @@
+{
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"color_scheme": "Catppuccin Mocha.sublime-color-scheme",
+	"theme": "Adaptive.sublime-theme",
+	"hot_exit": false,
+	"remember_open_files": false,
+	"caret_style": "blink",
+	"caret_extra_top": 0,
+	"caret_extra_bottom": 0,
+	"caret_extra_width": 1,
+	"font_size": 12,
+}

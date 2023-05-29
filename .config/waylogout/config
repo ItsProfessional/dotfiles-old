@@ -1,0 +1,41 @@
+# action commands
+poweroff-command=systemctl poweroff
+reboot-command=systemctl reboot
+suspend-command=systemctl suspend
+logout-command=~/scripts/logout
+lock-command=loginctl lock-session $XDG_SESSION_ID
+
+# basic
+scroll-sensitivity=9999
+hide-cancel
+selection-label
+screenshot
+color=#1E1E2E
+
+# font
+font=JetBrains Mono Nerd Font
+label-font-size=22
+symbol-font-size=45
+
+# indicator
+indicator-radius=90
+indicator-thickness=8
+indicator-y-position=450
+indicator-separation=16
+
+# text color
+text-color=FFFFFF
+text-selection-color=FFFFFF
+
+# inside color
+inside-color=313244
+inside-selection-color=585b70
+
+# ring color
+ring-color=45475a
+ring-selection-color=585b70
+line-uses-inside
+
+# effects
+effect-blur=4x2
+

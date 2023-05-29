@@ -1,0 +1,17 @@
+#!/bin/sh
+
+while clipnotify; do
+  active=$(hyprctl activewindow -j | jq -r .class)
+
+  if ! grep -Fxq "$active" ~/.config/nomousepaste-blacklist; then
+
+    echo selected has been cleared in "$active"
+    wl-copy -pc # wayland native windows
+    echo -n | xsel -ni # xwayland windows
+
+  else
+    echo "$active" is blacklisted, not clearing selection
+  fi
+
+done
+

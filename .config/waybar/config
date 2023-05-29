@@ -1,0 +1,151 @@
+{
+    "layer": "top",
+    "height": 31,
+    "spacing": 0,
+
+    "modules-left": ["wlr/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["pulseaudio", "backlight", "memory", "cpu", "disk", "battery", "clock", "tray"],
+
+    "wlr/workspaces": {
+         "format": "{icon}",
+         "on-click": "activate",
+         // "on-scroll-up": "hyprctl dispatch workspace e+1",
+         // "on-scroll-down": "hyprctl dispatch workspace e-1",
+         "disable-scroll": true,
+         "all-outputs": true,
+         "sort-by-number": true
+    },
+
+
+    "custom/window": {
+         "exec": "~/.local/bin/current-client-class",
+    },
+
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        //"format": "{volume}% {icon} {format_source}",
+        //"format-bluetooth": "{volume}% {icon} {format_source}",
+        //"format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "{percent}% {icon}",
+      "format-icons": ["", ""]
+    },
+
+    "memory": {
+        "format": "{percentage}%"
+    },
+
+    "cpu": {
+        "format": "{usage}%",
+        "tooltip": false
+    },
+
+    "disk": {
+        "format": "{percentage_used}%",
+    },
+
+    "battery": {
+        "states": {
+            "good": 85,
+            "warning": 50,
+            "critical": 30
+        },
+        //"format": "{capacity}%",
+        //"format-charging": "{capacity}%^",
+        //"format-plugged": "{capacity}%!",
+
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%r %d/%m/%y}",
+	      "interval": 1
+    },
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+
+
+    // unused:
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+}
+

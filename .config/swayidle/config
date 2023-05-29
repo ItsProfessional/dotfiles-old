@@ -1,0 +1,16 @@
+# Wait for commands to finish
+#-w
+
+# Dim screen
+timeout 290 "brightnessctl -e -s set 40%" resume "brightnessctl -e -r"
+
+# Auto lock and turn off screen after inactivity 
+timeout 300 "loginctl lock-session $XDG_SESSION_ID"
+timeout 305 "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on"
+
+# Lock before suspending (includes lid close)
+before-sleep "loginctl lock-session $XDG_SESSION_ID"
+
+# Locker (pauses media before locking aswell)
+lock "playerctl pause; swaylock"
+

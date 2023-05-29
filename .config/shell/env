@@ -1,0 +1,92 @@
+#!/bin/sh
+
+## Functions
+# Path
+  pathappend() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+      export PATH="${PATH:+"$PATH:"}$1"
+    fi
+  }
+
+  pathprepend() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+      export PATH="$1${PATH:+":$PATH"}"
+    fi
+  }
+
+
+## Environment
+# XDG Base Directory
+  # User
+  export XDG_CONFIG_HOME=$HOME/.config
+  export XDG_CACHE_HOME=$HOME/.cache
+  export XDG_DATA_HOME=$HOME/.local/share
+  export XDG_STATE_HOME=$HOME/.local/state
+
+  # System
+  export XDG_DATA_DIRS=/usr/local/share:/usr/share
+  export XDG_CONFIG_DIRS=/etc/xdg
+
+# Path
+  pathprepend "$HOME"/.local/bin
+  pathprepend "$HOME"/scripts
+
+# Editor
+    export VISUAL=nvim
+    export EDITOR=nvim
+    export DIFFPROG="nvim -d"
+
+# GTK/QT stuff
+    config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
+    if [ -f "$config" ]; then
+      #icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+      #font_name="$(grep 'gtk-font-name' "$config" | sed 's/.*\s*=\s*//')
+      export GTK_THEME="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+      export XCURSOR_THEME="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+    fi
+
+    export XCURSOR_SIZE=24
+    export QT_QPA_PLATFORMTHEME=qt5ct
+
+
+# Change dotfile locations
+    # History files
+    export HISTFILE="${XDG_STATE_HOME}"/bash/history
+    export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+    export PYTHONSTARTUP="/etc/python/pythonrc"
+    export LESSHISTFILE="$XDG_STATE_HOME"/less/history
+    
+    # Data directories
+    export ANDROID_HOME="$XDG_DATA_HOME"/android
+    export CARGO_HOME="$XDG_DATA_HOME"/cargo
+    export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+    export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+    export WINEPREFIX="$XDG_DATA_HOME"/wine
+    #export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+    
+    # Config files/directories
+    export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+    export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+    export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+    export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+    
+# Program options
+
+    # Enable wrap-around instead of truncating text when using journalctl
+    export SYSTEMD_LESS=FRXMK
+
+    # Pfetch config
+    export PF_SOURCE="$XDG_CONFIG_HOME"/pfetchrc
+
+    # Bemenu
+    export BEMENU_OPTS='-i -l 10 -C -p "> " -n --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e"'
+
+    # fzf
+    export FZF_DEFAULT_OPTS=" \
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+    --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+    # man
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+

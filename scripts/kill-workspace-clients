@@ -1,0 +1,32 @@
+#!/bin/env python
+
+import subprocess
+import json
+
+def hyprctl(command):
+    result = subprocess.run("hyprctl "+command, stdout=subprocess.PIPE, shell=True).stdout
+
+    return result
+
+def hyprctl_json(command):
+    return json.loads(hyprctl(command+" -j"))
+
+def main():
+    workspace_id = hyprctl_json("activeworkspace")["id"]
+
+    pids = []
+    clients = hyprctl_json("clients")
+    for client in clients:
+        client_workspaceid = client["workspace"]["id"]
+        if client_workspaceid == workspace_id:
+            pids.append(client["pid"])
+
+    print(pids)
+    for pid in pids:
+        x = hyprctl("dispatch closewindow pid:" + str(pid))
+        print(x)
+
+
+if __name__ == "__main__":
+    main()
+

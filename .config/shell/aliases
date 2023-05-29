@@ -1,0 +1,256 @@
+#!/bin/sh
+
+# command flags
+# verbose and interactive
+alias cp='cp -v' #-iv
+alias mv='mv -v' #-iv
+alias rm='rm -v' #-vI
+alias mkdir='mkdir -pv'
+alias trash='trash -v'
+alias trash-put='trash-put -v'
+
+# colored output
+alias ls='exa --icons --group-directories-first'
+alias grep='grep --color=always'
+alias less='less -R --use-color -Dd+r\$Du+b\$'
+alias ip='ip -color=auto'
+
+# core stuff
+alias ps='ps auxf'
+alias ping='ping -c 10'
+alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
+alias tree='tree -CAhF --dirsfirst'
+alias treed='tree -CAFd'
+alias df='df -hT'
+alias du='du -sh'
+alias date='date "+%d-%m-%Y %A %I:%M:%S %Z"'
+
+# other programs
+alias multitail='multitail --no-repeat -c'
+alias xsettingsd='xsettingsd -c ~/.config/xsettingsd'
+alias lf='lfcd'
+alias fd='fd -u'
+alias yay='paru'
+alias neofetch='fastfetch'
+alias grimshot='grimblast'
+
+# replace programs
+alias cat='bat'
+alias locate='plocate'
+alias code='codium'
+alias edit="$EDITOR"
+
+# shell commands
+alias history='history 0' # show full history
+alias cd='z'
+
+# auto-elevate commands
+alias ufw='doas ufw'
+alias updatedb='doas updatedb'
+
+
+
+
+
+# program aliases
+# core utils
+alias path='realpath'
+alias ren='mv -v' #-iv
+alias cls='clear'
+alias updb='doas updatedb'
+alias fetch='pfetch'
+alias py='python3'
+alias fix='fuck'
+alias f='fuck'
+alias rdd='rmdir'
+alias rd='rm -rfv'
+md() { mkdir -pv $@ && cd $@ }
+alias ex='export'
+alias cmd='type'
+alias fdu='du -h --max-depth=1'
+
+# editor
+alias vi="$EDITOR"
+alias vim="$EDITOR"
+alias v="$EDITOR"
+alias vv="doasedit"
+alias nv='nvim'
+alias sv="doasedit"
+alias vw="$EDITOR ~/documents/vimwiki/index.md"
+alias vf='vim $(fzf)'
+
+# package manager
+alias pc='pacman'
+alias p='paru'
+
+# sudo aliases
+alias sudo='doas'
+alias sudoedit='doasedit'
+alias s='doas'
+alias d='doas'
+alias spacman='doas pacman'
+alias dpacman='doas pacman'
+
+# trash
+alias tp='trash-put -v'
+alias tpr='trash-restore'
+alias tpl='trash-list'
+
+# interpretors and compilers
+alias python='python3'
+
+# youtube dl
+alias youtube-dl='yt-dlp'
+alias yt-dl='yt-dlp'
+
+# media programs
+alias nb='newsboat'
+alias za='zathura'
+
+# other programs
+alias tm='tmux'
+alias pcmanfm='pcmanfm-qt'
+
+# typos
+# cd
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
+
+# clear
+alias claer='clear'
+alias celar='clear'
+alias caler='clear'
+alias cler='clear'
+alias clre='clear'
+alias clera='clear'
+alias lcear='clear'
+alias lcera='clear'
+alias lcrea='clear'
+alias iclear='clear'
+
+
+# git aliases
+alias g='git'
+alias gst='git status'
+alias gc='git commit'
+alias ga='git add'
+alias gpl='git pull'
+alias gpom='git pull origin master'
+alias gpu='git push'
+alias gpuom='git push origin master'
+alias gd='git diff'
+alias gch='git checkout'
+alias gnb='git checkout -b'
+alias gac='git add . && git commit'
+alias grs='git restore --staged .'
+alias gre='git restore'
+alias gr='git remote'
+alias gcl='git clone'
+alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+alias gt='git ls-tree -r master --name-only'
+alias grm='git remote'
+alias gb='git branch'
+alias gf='git fetch'
+
+# aliases for dotfiles git bare repo
+alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dfs='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dfa='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add'
+alias dfc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME commit'
+alias dfp='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME push'
+
+# ls aliases
+#todo: human readable sizes
+alias la='exa -la' # alphabetical sort
+alias ls='exa -aF --color=always' # add colors and file type extensions
+alias lx='exa -lah -s extension' # sort by extension
+alias lk='exa -larhs size' # sort by size
+alias lc='exa -larhs changed' # sort by change time
+alias lu='exa -larhs accessed' # sort by access time
+alias lr='exa -laRh' # recursive ls
+alias lt='exa -lahs modified' # sort by date
+alias lm='exa -alh | more' # pipe to more
+# alias lw='exa -xAh' # wide listing format # todo
+#todo: human readable sizes end
+
+# alias ll="exa -Fls" # long listing format # todo
+alias lfile='exa -la' # files only
+alias ldir='exa -lDa' # directories only
+alias ltr='tree' # tree
+
+# rm aliases
+rdc() { # remove current directory
+  rm $(realpath .) -r
+  cd ..
+}
+
+
+# cd aliases
+alias home='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias bd='cd "$OLDPWD"'
+alias back='cd "$OLDPWD"'
+
+# chmod
+alias mx='chmod a+x'
+alias 000='chmod -R 000'
+alias 644='chmod -R 644'
+alias 666='chmod -R 666'
+alias 755='chmod -R 755'
+alias 777="chmod -R 777"
+
+alias chget='stat -c %a'
+
+# tar
+alias mktar='tar -cvf'
+alias mkbz2='tar -cvjf'
+alias mkgz='tar -cvzf'
+alias untar='tar -xvf'
+alias unbz2='tar -xvjf'
+alias ungz='tar -xvzf'
+
+# tmux
+alias trel='tmux source ~/.config/tmux/tmux.conf'
+alias tls='tmux ls'
+alias tn='tmux new -s'
+alias tk='tmux kill-ses'
+alias tka="tmux list-sessions | awk 'BEGIN{FS=\":\"}{print $1}' | ifne xargs -n 1 tmux kill-session -t"
+alias tko='tmux kill-ses -a' # kill others
+alias ta='tmux attach'
+
+# remove commands
+alias rp='r' # I remap the "r" command later, so I map the original "r" command to "rp"
+
+# reload/restart stuff
+alias relocate='doas updatedb && plocate'
+alias r='exec zsh' # restart zsh
+
+# power control
+alias lock='loginctl lock-session $XDG_SESSION_ID'
+alias dpms='hyprctl dispatch dpms'
+alias pexec='hyprctl dispatch exec'
+alias logout='~/.local/bin/logout'
+alias logoff='~/.local/bin/logout'
+alias lo='~/.local/bin/logout'
+alias sd='shutdown now'
+alias sdd='shutdown -n now'
+alias rb='shutdown -r now'
+alias rbb='shutdown -r -n now'
+
+# search history
+alias h='history | grep '
+
+# search files in the current folder
+alias sf='find . | grep '
+
+# count all files recursively in the current folder
+alias countf='for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null'
+
+# show all logs in /var/log
+alias logs="doas find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
+

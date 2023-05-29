@@ -1,0 +1,12 @@
+#!/bin/sh
+
+hyprctl keyword input:follow_mouse 1
+
+ydotool mousemove -x -1 -y 0
+ydotool mousemove -x 1 -y 0
+
+sleep 0.1
+
+# 2 is assumed to be the value set in hyprland.conf, change to the value you have
+hyprctl keyword input:follow_mouse 2
+

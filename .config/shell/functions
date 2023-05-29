@@ -1,0 +1,79 @@
+#!/bin/env bash
+
+preload() {
+  PID=$(/bin/pgrep $1 | head -n 1)
+  if [[ ! $PID ]]; then
+    echo "$1" is not running
+    return
+  fi
+
+  # Get rid of "COMMAND" prefix using sed
+  COMMAND=$(/bin/ps -p $PID -o args | sed -e 's/COMMAND//g')
+
+  # Get rid of leading "\n"
+  COMMAND="${COMMAND//[$'\t\r\n']}"
+
+  pkill "$1"
+  hyprctl dispatch exec '$COMMAND'
+}
+
+
+quickrun() {
+  hyprctl dispatch exec "$@"
+}
+
+
+# quick edit configs
+c() {
+  # zsh
+  if [ "$1" = "zr" ]; then $EDITOR ~/.config/zsh/.zshrc; fi
+  if [ "$1" = "ze" ]; then $EDITOR ~/.config/zsh/.zshenv; fi
+  if [ "$1" = "zp" ]; then $EDITOR ~/.config/zsh/.zprofile; fi
+  if [ "$1" = "zl" ]; then $EDITOR ~/.config/zsh/.zlogin; fi
+
+  # wm-related
+  if [ "$1" = "sw" ]; then $EDITOR ~/.config/sway/config; fi
+  if [ "$1" = "hl" ]; then $EDITOR ~/.config/hypr/hyprland.conf; fi
+  if [ "$1" = "hp" ]; then $EDITOR ~/.config/hypr/hyprpaper.conf; fi
+  if [ "$1" = "wp" ]; then $EDITOR ~/.config/wpaperd/wallpaper.toml; fi
+  if [ "$1" = "init" ]; then $EDITOR ~/.local/bin/startw; fi
+  if [ "$1" = "wb" ]; then $EDITOR ~/.config/waybar/config; fi
+  if [ "$1" = "wbs" ]; then $EDITOR ~/.config/waybar/style.css; fi
+  if [ "$1" = "wl" ]; then $EDITOR ~/.config/waylogout/config; fi
+  if [ "$1" = "wls" ]; then $EDITOR ~/.config/wlogout/style.css; fi
+  if [ "$1" = "han" ]; then $EDITOR ~/.config/hyprland-autoname-workspaces/config.toml; fi
+  if [ "$1" = "lf" ]; then $EDITOR ~/.config/lf/lfrc; fi
+
+  # common shell files
+  if [ "$1" = "a" ]; then $EDITOR ~/.config/shell/aliases; fi
+  if [ "$1" = "env" ]; then $EDITOR ~/.config/shell/env; fi
+  if [ "$1" = "fn" ]; then $EDITOR ~/.config/shell/functions; fi
+  if [ "$1" = "cl" ]; then $EDITOR ~/.config/shell/login; fi
+  if [ "$1" = "cp" ]; then $EDITOR ~/.config/shell/profile; fi
+  if [ "$1" = "rc" ]; then $EDITOR ~/.config/shell/rc; fi
+
+  # for script s
+  if [ "$1" = "s" ]; then $EDITOR ~/.local/bin/$2; fi
+
+  # utilities
+  if [ "$1" = "ac" ]; then $EDITOR ~/.config/alacritty/alacritty.yml; fi
+  if [ "$1" = "wt" ]; then $EDITOR ~/.config/wezterm/wezterm.lua; fi
+  if [ "$1" = "p10k" ]; then $EDITOR ~/.config/zsh/.p10k.zsh; fi
+  if [ "$1" = "tm" ]; then $EDITOR ~/.config/tmux/tmux.conf; fi
+  if [ "$1" = "ff" ]; then $EDITOR ~/.config/fastfetch/config.conf; fi
+  if [ "$1" = "pf" ]; then $EDITOR ~/.config/pfetchrc; fi
+  if [ "$1" = "tofi" ]; then $EDITOR ~/.config/tofi/config; fi
+  if [ "$1" = "xm" ]; then $EDITOR ~/.config/xremap/config.yml; fi
+  if [ "$1" = "sl" ]; then $EDITOR ~/.config/swaylock/config; fi
+
+  # polkit
+  # systemd rules
+  # 
+
+  # syste wide configuration files
+  if [ "$1" = "doas" ]; then sudo $EDITOR /etc/doas.conf; fi
+  if [ "$1" = "greetd" ]; then sudo $EDITOR /etc/greetd/config.toml; fi
+  if [ "$1" = "pac" ]; then sudo $EDITOR /etc/pacman.conf; fi
+
+}
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Fastfetch
+# Only show it on the first session, not when reloading using `exec zsh`
+#if [ -z "$flag" ]; then
+  #export flag=true
+  #fastfetch
+#fi
+

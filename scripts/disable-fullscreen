@@ -1,0 +1,21 @@
+#!/bin/env python
+
+import subprocess
+import json
+
+def hyprctl(command):
+    result = subprocess.run("hyprctl "+command, stdout=subprocess.PIPE, shell=True).stdout
+    return result
+
+def hyprctl_json(command):
+    return json.loads(hyprctl(command+" -j"))
+
+def main():
+    activewindow = hyprctl_json("activewindow")
+    if activewindow["fullscreen"] == True:
+        hyprctl("dispatch fullscreen")
+
+
+if __name__ == "__main__":
+    main()
+

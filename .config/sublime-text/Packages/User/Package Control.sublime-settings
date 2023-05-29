@@ -1,0 +1,15 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoHotkey",
+		"C++ Completions",
+		"Discord Rich Presence",
+		"One Dark Material - Theme",
+		"Package Control",
+		"PowerShell",
+	],
+}
