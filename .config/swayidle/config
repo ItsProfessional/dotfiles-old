@@ -4,11 +4,14 @@
 # Dim screen
 timeout 290 "brightnessctl -e -s set 40%" resume "brightnessctl -e -r"
 
-# Auto lock and turn off screen after inactivity 
-timeout 300 "loginctl lock-session $XDG_SESSION_ID"
-timeout 305 "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on"
+# Lock and turn off screen after 2 mins of inactivity 
+timeout 120 "loginctl lock-session $XDG_SESSION_ID"
+timeout 120 "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on"
 
-# Lock before suspending (includes lid close)
+# Suspend after 4 mins of inactivity
+timeout 240 "systemctl suspend"
+
+# Lock before suspending (includes lid close, since I have that set to suspend)
 before-sleep "loginctl lock-session $XDG_SESSION_ID"
 
 # Locker (pauses media before locking aswell)
