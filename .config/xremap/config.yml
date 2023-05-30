@@ -18,7 +18,7 @@ modmap:
       # Disable middle click to paste
       BTN_MIDDLE:
         press: { launch: ["sh", "-c", "wl-copy -pc && xsel -nc"] }
-        release: Reserved
+        release: { launch: ["sh", "-c", "wl-copy -pc && xsel -nc"] }
 
 keymap:
   - name: Global
