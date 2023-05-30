@@ -1,5 +1,23 @@
 #!/bin/env bash
 
+# lfcd
+lfcd () {
+    tmp="$(mktemp)"
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    command lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        command rm -f "$tmp" # command is needed in case rm is verbose via aliases
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}
+
+
+
 preload() {
   PID=$(/bin/pgrep $1 | head -n 1)
   if [[ ! $PID ]]; then
@@ -14,12 +32,7 @@ preload() {
   COMMAND="${COMMAND//[$'\t\r\n']}"
 
   pkill "$1"
-  hyprctl dispatch exec '$COMMAND'
-}
-
-
-quickrun() {
-  hyprctl dispatch exec "$@"
+  hyprctl dispatch exec "$COMMAND"
 }
 
 

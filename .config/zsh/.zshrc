@@ -1,6 +1,6 @@
-# Tmux
+# Run tmux
 if [ -z "$TMUX" ] && [ "$(tty)" != "/dev/tty*" ]; then
-  #exec tmux
+  # exec tmux
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
@@ -37,79 +37,68 @@ setopt inc_append_history
 setopt share_history
 setopt interactivecomments
 setopt auto_cd
-# setopt correct
-
-autoload -Uz compinit && compinit
-
-# Case-insensitive path completion
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
-# Enable git relative paths completion: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitfast
-fpath=(~/.config/zsh/gitfast $fpath)
-source ~/.config/zsh/gitfast/git-prompt.sh
 
 # disable vim mode
 # bindkey -e
+
+# tab completion
+autoload -Uz compinit && compinit
+
+# use menu selection for auto complete
+zstyle ':completion:*' menu select
+
+# enable case-insensitive path completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# enable git relative paths completion: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitfast
+fpath=(~/.config/zsh/gitfast $fpath)
+source ~/.config/zsh/gitfast/git-prompt.sh
+
+# Remove duplicates from path
+typeset -U path
 
 # initialize stuff
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 
-
 # plugins
 source $XDG_CONFIG_HOME/zsh/catppuccin-zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+#source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-#source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
+source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 
+# plugin options
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+# binds
 
-# lfcd
-lfcd () {
-    tmp="$(mktemp)"
-    # `command` is needed in case `lfcd` is aliased to `lf`
-    command lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        command rm -f "$tmp" # command is needed in case rm is verbose via aliases
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
-        fi
-    fi
-}
-
+# terminal file manager (lf/lfcd)
 bindkey -s '^o' 'lfcd\n'
 
-
-zstyle ':completion:*' menu select
-
-# history substring search options
+# history substring search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
+# beginning and end of line
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# ctrl+backspace/delete
+# fix ctrl+backspace and ctrl+delete
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 
-# home/end/delete
+# fix home/end/delete
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 
-# ctrl+left/right
+# fix ctrl+left/right
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# fix ctrl+l tmux
+# fix ctrl+l in tmux
 if [ ! -z "$TMUX" ]; then
   clear-scrollback-and-screen () {
     zle clear-screen
@@ -120,12 +109,34 @@ if [ ! -z "$TMUX" ]; then
   bindkey -v '^L' clear-scrollback-and-screen
 fi
 
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[2 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[6 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[6 q"
+}
+zle -N zle-line-init
+echo -ne '\e[6 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
+
 
 
 # powerlevel10k
-
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 

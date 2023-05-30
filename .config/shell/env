@@ -2,18 +2,29 @@
 
 ## Functions
 # Path
+
+  pathremove() {
+    # Delete path by parts so we can never accidentally remove sub paths
+    if [ "$PATH" = "$1" ]; then export PATH=""; fi
+
+    export PATH=${PATH//":$1:"/":"} # delete any instances in the middle
+    export PATH=${PATH/#"$1:"/} # delete any instance at the beginning
+    export PATH=${PATH/%":$1"/} # delete any instance in the at the end
+  }
+
   pathappend() {
+    pathremove "$1"
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
       export PATH="${PATH:+"$PATH:"}$1"
     fi
   }
 
   pathprepend() {
+    pathremove "$1"
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
       export PATH="$1${PATH:+":$PATH"}"
     fi
   }
-
 
 ## Environment
 # XDG Base Directory
@@ -28,8 +39,15 @@
   export XDG_CONFIG_DIRS=/etc/xdg
 
 # Path
-  pathprepend "$HOME"/.local/bin
-  pathprepend "$HOME"/scripts
+  # Reorder path
+  #pathprepend /usr/local/sbin
+  #pathprepend /usr/local/bin
+  #pathprepend /usr/lib/jvm/default/bin
+  #pathprepend /usr/lib/rustup/bin
+  #pathprepend "$HOME"/.local/bin
+
+  # Add scripts folder to path
+  #pathprepend "$HOME"/scripts
 
 # Editor
     export VISUAL=nvim
@@ -55,6 +73,7 @@
     export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
     export PYTHONSTARTUP="/etc/python/pythonrc"
     export LESSHISTFILE="$XDG_STATE_HOME"/less/history
+    export CALCHISTFILE="$XDG_CACHE_HOME"/calc_history
     
     # Data directories
     export ANDROID_HOME="$XDG_DATA_HOME"/android
@@ -89,4 +108,8 @@
 
     # man
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+    # less
+    export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+    export LESS='-R '
 
