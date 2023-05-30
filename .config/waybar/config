@@ -1,11 +1,11 @@
 {
     "layer": "top",
     "height": 31,
-    "spacing": 0,
+    "spacing": -2,
 
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "backlight", "memory", "cpu", "disk", "battery", "clock", "tray"],
+    "modules-right": ["pulseaudio", "backlight", "network", "disk", "battery", "clock", "tray"],
 
     "wlr/workspaces": {
          "format": "{icon}",
@@ -59,15 +59,15 @@
 
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        //"format": "{volume}% {icon} {format_source}",
-        //"format-bluetooth": "{volume}% {icon} {format_source}",
+        //"format": "{icon} {volume}% {format_source}",
+        //"format-bluetooth": "{icon} {volume}% {format_source}",
         //"format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
         "format-bluetooth-muted": " {icon}",
         "format-muted": "",
-        "format-source": "{volume}% ",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -83,8 +83,16 @@
 
     "backlight": {
       "device": "intel_backlight",
-      "format": "{percent}% {icon}",
-      "format-icons": ["", ""]
+      "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "network": {
+        // "format-wifi": "{essid} ({signalStrength}%)",
+        // "format-ethernet": "{ipaddr}/{cidr}",
+        "format": "",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{ifname} via {gwaddr}",
     },
 
     "memory": {
@@ -97,7 +105,7 @@
     },
 
     "disk": {
-        "format": "{percentage_used}%",
+        "format": "󰋊 {percentage_used}%",
     },
 
     "battery": {
@@ -110,42 +118,23 @@
         //"format-charging": "{capacity}%^",
         //"format-plugged": "{capacity}%!",
 
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
 
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%r %d/%m/%y}",
 	      "interval": 1
     },
 
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 15,
         "spacing": 10
-    },
-
-
-    // unused:
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-
-    "network": {
-        "format-wifi": "{essid} ({signalStrength}%)",
-        "format-ethernet": "{ipaddr}/{cidr}",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
+    }
 }
 
