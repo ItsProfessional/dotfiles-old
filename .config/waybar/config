@@ -17,10 +17,10 @@
          "sort-by-number": true
     },
 
-
-    "custom/window": {
-         "exec": "~/.local/bin/current-client-class",
+    "hyprland/window": {
+         "max-length": 120
     },
+
 
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
