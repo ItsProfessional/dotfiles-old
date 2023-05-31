@@ -40,6 +40,7 @@ alias locate='plocate'
 alias code='codium'
 alias edit="$EDITOR"
 
+
 # shell commands
 alias history='history 0' # show full history
 alias cd='z'
@@ -154,6 +155,7 @@ alias gt='git ls-tree -r master --name-only'
 alias grm='git remote'
 alias gb='git branch'
 alias gf='git fetch'
+alias gdelbak='git for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d'
 
 # aliases for dotfiles git bare repo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
