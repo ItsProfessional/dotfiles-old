@@ -15,11 +15,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
-# aliases and functions
-[ -f "${XDG_CONFIG_HOME}/shell/rc" ] && source "${XDG_CONFIG_HOME}/shell/rc"
-[ -f "${XDG_CONFIG_HOME}/shell/functions" ] && source "${XDG_CONFIG_HOME}/shell/functions"
-[ -f "${XDG_CONFIG_HOME}/shell/aliases" ] && source "${XDG_CONFIG_HOME}/shell/aliases"
-
 # options
 unsetopt menu_complete
 unsetopt flowcontrol
@@ -38,11 +33,32 @@ setopt share_history
 setopt interactivecomments
 setopt auto_cd
 
-# disable vim mode
-# bindkey -e
+# plugins
+source $XDG_CONFIG_HOME/zsh/catppuccin-zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 
 # tab completion
 autoload -Uz compinit && compinit
+
+# plugin options
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# initialize stuff
+eval $(thefuck --alias)
+eval "$(zoxide init zsh)"
+
+# aliases and functions
+[ -f "${XDG_CONFIG_HOME}/shell/rc" ] && source "${XDG_CONFIG_HOME}/shell/rc"
+[ -f "${XDG_CONFIG_HOME}/shell/functions" ] && source "${XDG_CONFIG_HOME}/shell/functions"
+[ -f "${XDG_CONFIG_HOME}/shell/aliases" ] && source "${XDG_CONFIG_HOME}/shell/aliases"
+
+
+# disable vim mode
+# bindkey -e
 
 # use menu selection for auto complete
 zstyle ':completion:*' menu select
@@ -57,20 +73,9 @@ source ~/.config/zsh/gitfast/git-prompt.sh
 # Remove duplicates from path
 typeset -U path
 
-# initialize stuff
-eval $(thefuck --alias)
-eval "$(zoxide init zsh)"
 
-# plugins
-source $XDG_CONFIG_HOME/zsh/catppuccin-zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 
-# plugin options
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 
 # binds
 
