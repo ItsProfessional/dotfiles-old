@@ -1,6 +1,6 @@
 # Run tmux
 if [ -z "$TMUX" ] && [ "$(tty)" != "/dev/tty*" ]; then
-  # exec tmux
+  exec tmux
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
@@ -74,8 +74,8 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # binds
 
-# terminal file manager (lf/lfcd)
-bindkey -s '^o' 'lfcd\n'
+# terminal file manager (lf)
+bindkey -s '^o' 'lf\n'
 
 # history substring search
 bindkey '^[[A' history-substring-search-up
