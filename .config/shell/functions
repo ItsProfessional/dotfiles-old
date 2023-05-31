@@ -63,10 +63,7 @@ c() {
   if [ "$1" = "fn" ]; then $EDITOR ~/.config/shell/functions; fi
   if [ "$1" = "cl" ]; then $EDITOR ~/.config/shell/login; fi
   if [ "$1" = "cp" ]; then $EDITOR ~/.config/shell/profile; fi
-  if [ "$1" = "rc" ]; then $EDITOR ~/.config/shell/rc; fi
-
-  # for script s
-  if [ "$1" = "s" ]; then $EDITOR ~/.local/bin/$2; fi
+  if [ "$1" = "cr" ]; then $EDITOR ~/.config/shell/rc; fi
 
   # utilities
   if [ "$1" = "ac" ]; then $EDITOR ~/.config/alacritty/alacritty.yml; fi
