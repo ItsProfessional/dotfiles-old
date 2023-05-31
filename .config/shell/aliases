@@ -158,6 +158,7 @@ alias gf='git fetch'
 # aliases for dotfiles git bare repo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias dfs='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dfss='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME status'
 alias dfa='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add'
 alias dfc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME commit'
 alias dfp='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME push'
