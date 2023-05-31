@@ -142,8 +142,11 @@
             "enabled": true
         },
         "NoReplyMention": {
-            "enabled": true,
-            "exemptList": "1234567890123445,1234567890123445"
+            "enabled": false,
+            "exemptList": "1234567890123445,1234567890123445",
+            "userList": "1234567890123445,1234567890123445",
+            "shouldPingListed": true,
+            "inverseShiftReply": false
         },
         "NoScreensharePreview": {
             "enabled": true
@@ -486,7 +489,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1685096794137
+        "settingsSyncVersion": 1685550094095
     },
     "macosTranslucency": false,
     "disableMinSize": false
