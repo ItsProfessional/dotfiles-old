@@ -30,8 +30,8 @@
     word_wrap = yes
     ellipsize = middle
     ignore_newline = no
-    stack_duplicates = true
-    hide_duplicate_count = false
+    stack_duplicates = false
+    hide_duplicate_count = true
     show_indicators = yes
     icon_position = left
     min_icon_size = 0
@@ -48,6 +48,10 @@
     mouse_left_click = do_action, close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
+
+[play_sound]
+    summary = "*"
+    script = ~/.config/dunst/notify.sh
 
 [experimental]
     per_monitor_dpi = false
