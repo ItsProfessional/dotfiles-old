@@ -1,11 +1,11 @@
 {
     "layer": "top",
     "height": 31,
-    "spacing": -2,
+    "spacing": 0,
 
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "backlight", "network", "disk", "battery", "clock", "tray"],
+    "modules-right": ["network", "pulseaudio", "backlight", "disk", "battery", "clock", "tray"],
 
     "wlr/workspaces": {
          "format": "{icon}",
