@@ -51,6 +51,18 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 
+# fix ctrl+l in tmux
+if [ ! -z "$TMUX" ]; then
+  clear-scrollback-and-screen () {
+    zle clear-screen
+    tmux clear-history
+  }
+
+  zle -N clear-scrollback-and-screen
+  bindkey -v '^L' clear-scrollback-and-screen
+fi
+
+
 # aliases and functions
 [ -f "${XDG_CONFIG_HOME}/shell/rc" ] && source "${XDG_CONFIG_HOME}/shell/rc"
 [ -f "${XDG_CONFIG_HOME}/shell/functions" ] && source "${XDG_CONFIG_HOME}/shell/functions"
@@ -72,10 +84,6 @@ source ~/.config/zsh/gitfast/git-prompt.sh
 
 # Remove duplicates from path
 typeset -U path
-
-
-
-
 
 # binds
 
@@ -103,16 +111,6 @@ bindkey "^[[3~" delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# fix ctrl+l in tmux
-if [ ! -z "$TMUX" ]; then
-  clear-scrollback-and-screen () {
-    zle clear-screen
-    tmux clear-history
-  }
-
-  zle -N clear-scrollback-and-screen
-  bindkey -v '^L' clear-scrollback-and-screen
-fi
 
 # vi mode
 bindkey -v

@@ -110,3 +110,6 @@
     export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
     export LESS='-R '
 
+    # needed for ssh-agent
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
+
