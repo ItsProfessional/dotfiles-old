@@ -19,12 +19,6 @@ config.color_scheme = 'Catppuccin Mocha'
 config.font = wezterm.font('JetBrainsMono Nerd Font', { weight = "Regular" })
 config.font_size = 11
 
--- fix scrolling
-config.keys = {
-  { key = 'UpArrow', action = act.ScrollByLine(-1) },
-  { key = 'DownArrow', action = act.ScrollByLine(1) },
-}
-
 config.mouse_bindings = {
   -- Change the default click behavior so that it only selects text and doesn't open hyperlinks
   {
@@ -38,6 +32,7 @@ config.mouse_bindings = {
     event = { Up = { streak = 1, button = 'Left' } },
     mods = 'CTRL',
     action = act.OpenLinkAtMouseCursor,
+    mouse_reporting = true --- this fixes it from not working in tmux
   },
 
   -- Fix shift+selection: https://github.com/wez/wezterm/issues/2910#issuecomment-1441182554
