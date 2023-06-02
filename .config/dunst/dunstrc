@@ -50,9 +50,9 @@
     mouse_right_click = close_all
     timeout = 1
 
-[play_sound]
-    summary = "*"
-    script = ~/.config/dunst/notify.sh
+#[play_sound]
+    #summary = "*"
+    #script = ~/.config/dunst/notify.sh
 
 [experimental]
     per_monitor_dpi = false
