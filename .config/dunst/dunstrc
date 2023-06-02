@@ -48,6 +48,7 @@
     mouse_left_click = do_action, close_current
     mouse_middle_click = close_current
     mouse_right_click = close_all
+    timeout = 1
 
 [play_sound]
     summary = "*"
@@ -59,12 +60,12 @@
 [urgency_low]
     background = "#181825AA"
     foreground = "#CDD6F4"
-    timeout = 2
+    timeout = 1
 
 [urgency_normal]
     background = "#181825AA"
     foreground = "#CDD6F4"
-    timeout = 2
+    timeout = 1
 
 [urgency_critical]
     background = "#181825AA"
