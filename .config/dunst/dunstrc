@@ -42,7 +42,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    ignore_dbusclose = false
+    ignore_dbusclose = true
     force_xwayland = false
     force_xinerama = false
     mouse_left_click = do_action, close_current
