@@ -18,7 +18,6 @@ alias ip='ip -color=auto'
 # core stuff
 alias ps='ps auxf'
 alias ping='ping -c 10'
-alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 alias tree='tree -CAhF --dirsfirst'
 alias treed='tree -CAFd'
 alias df='df -hT'
