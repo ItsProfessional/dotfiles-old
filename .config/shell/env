@@ -55,17 +55,16 @@
     export DIFFPROG="nvim -d"
 
 # GTK/QT stuff
+    # This file is written to by nwg-look
     config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
+
     if [ -f "$config" ]; then
-      #icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-      #font_name="$(grep 'gtk-font-name' "$config" | sed 's/.*\s*=\s*//')
       export GTK_THEME="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
       export XCURSOR_THEME="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+      export XCURSOR_SIZE="$(grep 'gtk-cursor-theme-size' "$config" | sed 's/.*\s*=\s*//')"
     fi
 
-    export XCURSOR_SIZE=24
     export QT_QPA_PLATFORMTHEME=qt5ct
-
 
 # Change dotfile locations
     # History files
