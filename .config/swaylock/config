@@ -4,7 +4,7 @@ ignore-empty-password
 show-failed-attempts
 
 # wallpaper
-image=/home/proferk/pictures/wallpapers/Foggy_Evening.jpg
+image=~/.config/wall.jpg
 scaling=fill
 color=#1E1E2E
 
@@ -24,10 +24,10 @@ font=JetBrains Mono Nerd Font
 font-size=18
 
 # segment colors
-key-hl-color=74c7ec
-bs-hl-color=f38ba8
-caps-lock-key-hl-color=74c7ec
-caps-lock-bs-hl-color=f38ba8
+key-hl-color=45475a
+bs-hl-color=45475a
+caps-lock-key-hl-color=cba6f7
+caps-lock-bs-hl-color=cba6f7
 
 # text color
 text-color=FFFFFF
@@ -37,17 +37,17 @@ text-ver-color=FFFFFF
 text-wrong-color=FFFFFF
 
 # inside color
-inside-color=313244
-inside-clear-color=313244
-inside-caps-lock-color=313244
-inside-ver-color=313244
-inside-wrong-color=313244
+inside-color=1e1e2e
+inside-clear-color=1e1e2e
+inside-caps-lock-color=1e1e2e
+inside-ver-color=1e1e2e
+inside-wrong-color=1e1e2e
 
 # ring color
-ring-color=45475a
-ring-clear-color=b4befe
-ring-caps-lock-color=fab387
-ring-ver-color=74c7ec
+ring-color=313244
+ring-clear-color=313244
+ring-caps-lock-color=cba6f7
+ring-ver-color=45475a
 ring-wrong-color=f38ba8
 line-uses-inside
 separator-color=313244
