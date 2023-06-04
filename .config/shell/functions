@@ -53,6 +53,7 @@ c() {
   if [ "$1" = "wb" ]; then $EDITOR ~/.config/waybar/config; fi
   if [ "$1" = "wbs" ]; then $EDITOR ~/.config/waybar/style.css; fi
   if [ "$1" = "wl" ]; then $EDITOR ~/.config/waylogout/config; fi
+  if [ "$1" = "si" ]; then $EDITOR ~/.config/swayidle/config; fi
   if [ "$1" = "wls" ]; then $EDITOR ~/.config/wlogout/style.css; fi
   if [ "$1" = "han" ]; then $EDITOR ~/.config/hyprland-autoname-workspaces/config.toml; fi
   if [ "$1" = "lf" ]; then $EDITOR ~/.config/lf/lfrc; fi
