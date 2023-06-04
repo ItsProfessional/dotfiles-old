@@ -3,7 +3,7 @@
 
 # Dim screen
 #timeout 290 "brightnessctl -e -s set 40%" resume "brightnessctl -e -r"
-timeout 115 "brillo -G > /tmp/prev_backlight; brillo -S 40 -q" resume "brillo -q -S $(< /tmp/prev_backlight)"
+timeout 115 "brillo -G > /tmp/prev_backlight; brillo -q -u 150000 -S 40" resume "brillo -u 150000 -S $(< /tmp/prev_backlight)"
 
 
 # Lock and turn off screen after 2 mins of inactivity 
