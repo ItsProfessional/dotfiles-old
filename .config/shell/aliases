@@ -93,8 +93,9 @@ alias dpacman='doas pacman'
 
 # trash
 alias tp='trash-put -v'
-alias tpr='trash-restore'
-alias tpl='trash-list'
+alias trr='trash-restore'
+alias trl='trash-list'
+alias tre='trash-empty'
 
 # interpretors and compilers
 alias python='python3'
