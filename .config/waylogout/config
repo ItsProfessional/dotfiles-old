@@ -29,12 +29,12 @@ text-color=FFFFFF
 text-selection-color=FFFFFF
 
 # inside color
-inside-color=313244
-inside-selection-color=585b70
+inside-color=1e1e2e
+inside-selection-color=1e1e2e
 
 # ring color
-ring-color=45475a
-ring-selection-color=585b70
+ring-color=313244
+ring-selection-color=45475a
 line-uses-inside
 
 # effects
