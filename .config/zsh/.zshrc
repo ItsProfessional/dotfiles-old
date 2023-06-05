@@ -1,5 +1,5 @@
-# Run tmux
-if [ -z "$TMUX" ] && [ "$(tty)" != "/dev/tty*" ]; then
+# Tmux
+if [ -z "$TMUX" ]; then
   exec tmux
 fi
 
@@ -136,8 +136,6 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[6 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
-
-
 
 # powerlevel10k
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
