@@ -14,7 +14,7 @@ color=#1E1E2E
 
 # time/date formats
 timestr=%r
-datestr=%a, %x
+datestr=%x
 
 # indicator
 indicator-radius=90
