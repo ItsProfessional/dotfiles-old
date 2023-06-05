@@ -310,10 +310,10 @@ bar {
 
 # Scripts:
     # Autotiling: https://github.com/nwg-piotr/autotiling
-    exec --no-startup-id ~/.local/bin/autotiling
+    exec --no-startup-id ~/scripts/sway/autotiling
     
     # Transparency: https://github.com/swaywm/sway/blob/master/contrib/inactive-windows-transparency.py
-    exec --no-startup-id ~/.local/bin/inactive-windows-transparency
+    exec --no-startup-id ~/scripts/sway/inactive-windows-transparency
 
     # Disable middle click paste: https://wiki.hyprland.org/FAQ/#how-to-disable-middle-click-paste
     # exec --no-startup-id wl-paste -p --watch wl-copy -pc
