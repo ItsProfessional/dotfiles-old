@@ -5,7 +5,7 @@
 
 send_notification() {
   #brightness=$(brightnessctl info | grep "Current" | cut -d "(" -f2 | cut -d ")" -f1 | tr -d '%')
-	brightness=$(printf "%.0f\n" "$(brillo -G)")
+	brightness=$(printf "%.0f\n" "$(brillo -G -q)")
 	notify-send -a "change-brightness" -u low -r 9991 -h int:value:"$brightness" -i "brightness-$1" "Brightness: $brightness%"
 }
 
