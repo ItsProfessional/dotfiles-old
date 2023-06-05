@@ -54,5 +54,5 @@ caps-lock-key-hl-color=cba6f7
 caps-lock-bs-hl-color=cba6f7
 
 # effects
-effect-blur=4x2
+#effect-blur=4x2
 
