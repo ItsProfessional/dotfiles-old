@@ -26,8 +26,8 @@ keymap:
     remap:
 
       # Set shift+capslock to normal capslock
-      Shift-CapsLock: CapsLock
-      Shift-Esc: CapsLock # actually shift+escape is sent because I remapped capslock to escape
+      #Shift-CapsLock: CapsLock
+      #Shift-Esc: CapsLock # actually shift+escape is sent because I remapped capslock to escape
 
       # Set Shift-Alt-Numeric_0 to Insert, as I need that sometimes
       Shift-Alt-Numeric_0: Insert
