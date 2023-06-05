@@ -2,6 +2,10 @@
 daemonize
 ignore-empty-password
 show-failed-attempts
+line-uses-inside
+clock
+indicator-caps-lock
+indicator-idle-visible
 
 # wallpaper
 image=~/.config/wall.jpg
@@ -13,21 +17,12 @@ timestr=%r
 datestr=%a, %x
 
 # indicator
-clock
-indicator-caps-lock
-indicator-idle-visible
 indicator-radius=90
 indicator-thickness=8
 
 # font
 font=JetBrains Mono Nerd Font
-font-size=18
-
-# segment colors
-key-hl-color=45475a
-bs-hl-color=45475a
-caps-lock-key-hl-color=cba6f7
-caps-lock-bs-hl-color=cba6f7
+font-size=15
 
 # text color
 text-color=FFFFFF
@@ -46,11 +41,17 @@ inside-wrong-color=1e1e2e
 # ring color
 ring-color=313244
 ring-clear-color=313244
+separator-color=313244
+
 ring-caps-lock-color=cba6f7
 ring-ver-color=45475a
 ring-wrong-color=f38ba8
-line-uses-inside
-separator-color=313244
+
+# segment colors
+key-hl-color=45475a
+bs-hl-color=45475a
+caps-lock-key-hl-color=cba6f7
+caps-lock-bs-hl-color=cba6f7
 
 # effects
 effect-blur=4x2
