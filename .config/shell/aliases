@@ -68,6 +68,7 @@ md() { mkdir -pv $@ && cd $@ }
 alias ex='export'
 alias cmd='type'
 alias fdu='du -h --max-depth=1'
+alias sc='doas systemctl'
 
 # editor
 alias vi="$EDITOR"
@@ -117,6 +118,9 @@ alias cd..='cd ..'
 alias cd...='cd ../..'
 alias cd....='cd ../../..'
 alias cd.....='cd ../../../..'
+
+# shell
+alias '$'=''
 
 # clear
 alias claer='clear'
