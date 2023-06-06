@@ -476,11 +476,17 @@
         },
         "PermissionsViewer": {
             "enabled": false
+        },
+        "NoPendingCount": {
+            "enabled": false
+        },
+        "NoProfileThemes": {
+            "enabled": false
         }
     },
     "notifications": {
         "timeout": 5000,
-        "position": "bottom-right",
+        "position": "top-right",
         "useNative": "not-focused",
         "logLimit": 50
     },
@@ -489,7 +495,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1685550094095
+        "settingsSyncVersion": 1686038745365
     },
     "macosTranslucency": false,
     "disableMinSize": false
