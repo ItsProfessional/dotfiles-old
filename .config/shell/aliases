@@ -228,7 +228,7 @@ alias trel='tmux source ~/.config/tmux/tmux.conf'
 alias tls='tmux ls'
 alias tn='tmux new -s'
 alias tk='tmux kill-ses'
-alias tka="tmux list-sessions | awk 'BEGIN{FS=\":\"}{print $1}' | ifne xargs -n 1 tmux kill-session -t"
+alias tka="tmux kill-ses -a && tmux kill-ses"
 alias tko='tmux kill-ses -a' # kill others
 alias ta='tmux attach'
 
