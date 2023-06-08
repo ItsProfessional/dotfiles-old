@@ -5,8 +5,7 @@ lock "playerctl pause; swaylock"
 before-sleep "swaylock"
 
 # Dim screen
-timeout 115 "brillo -q -G > /tmp/prev_backlight; brillo -q -u 150000 -S 40" resume "brillo -q -u 150000 -S $(/usr/bin/cat /tmp/prev_backlight)"
-after-resume "brillo -q -u 150000 -S $(/usr/bin/cat /tmp/prev_backlight)"
+timeout 115 "~/scripts/dim-brightness dim" resume "~/scripts/dim-brightness undim"
 
 # Lock and turn off screen after 2 mins of inactivity 
 timeout 120 "swaylock & hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on"
