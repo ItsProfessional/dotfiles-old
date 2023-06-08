@@ -35,6 +35,7 @@ alias grimshot='grimblast'
 
 # replace programs
 alias cat='bat'
+alias du='dust'
 alias locate='plocate'
 alias code='codium'
 alias edit="$EDITOR"
