@@ -142,7 +142,7 @@
             "enabled": true
         },
         "NoReplyMention": {
-            "enabled": false,
+            "enabled": true,
             "exemptList": "1234567890123445,1234567890123445",
             "userList": "1234567890123445,1234567890123445",
             "shouldPingListed": true,
