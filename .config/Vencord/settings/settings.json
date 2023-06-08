@@ -445,7 +445,7 @@
             "enabled": false
         },
         "ShowAllMessageButtons": {
-            "enabled": false
+            "enabled": true
         },
         "ShowConnections": {
             "enabled": false
