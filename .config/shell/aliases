@@ -126,6 +126,7 @@ alias '$'=''
 
 # clear
 alias claer='clear'
+alias clar='clear'
 alias celar='clear'
 alias caler='clear'
 alias cler='clear'
