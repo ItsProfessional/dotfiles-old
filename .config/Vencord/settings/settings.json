@@ -424,7 +424,7 @@
             "enabled": true
         },
         "UserVoiceShow": {
-            "enabled": false
+            "enabled": true
         },
         "NoChannelEmojis": {
             "enabled": true
