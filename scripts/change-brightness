@@ -4,19 +4,16 @@
 # and send a notification displaying the current brightness level after.
 
 send_notification() {
-  #brightness=$(brightnessctl info | grep "Current" | cut -d "(" -f2 | cut -d ")" -f1 | tr -d '%')
 	brightness=$(printf "%.0f\n" "$(brillo -G -q)")
 	notify-send -a "change-brightness" -u low -r 9991 -h int:value:"$brightness" -i "brightness-$1" "Brightness: $brightness%"
 }
 
 case $1 in
 up)
-  #brightnessctl -e set +3%
   brillo -q -u 150000 -A 2
 	send_notification "$1"
 	;;
 down)
-  #brightnessctl -e set 3%-
   brillo -q -u 150000 -U 2
 	send_notification "$1"
 	;;
