@@ -98,7 +98,7 @@
             "enabled": true
         },
         "ForceOwnerCrown": {
-            "enabled": true
+            "enabled": false
         },
         "iLoveSpam": {
             "enabled": false
@@ -287,7 +287,7 @@
             "enabled": false
         },
         "MessageClickActions": {
-            "enabled": true,
+            "enabled": false,
             "enableDoubleClickToEdit": true,
             "requireModifier": false,
             "enableDoubleClickToReply": true
@@ -495,7 +495,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1686038745365
+        "settingsSyncVersion": 1686206684880
     },
     "macosTranslucency": false,
     "disableMinSize": false
