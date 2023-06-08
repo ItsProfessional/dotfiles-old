@@ -421,7 +421,7 @@
             "enabled": false
         },
         "ImageZoom": {
-            "enabled": false
+            "enabled": true
         },
         "UserVoiceShow": {
             "enabled": false
