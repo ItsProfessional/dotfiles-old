@@ -33,11 +33,19 @@ setopt share_history
 setopt interactivecomments
 setopt auto_cd
 
+# initialize stuff
+eval $(thefuck --alias)
+eval "$(zoxide init zsh)"
+
+# aliases and functions
+[ -f "${XDG_CONFIG_HOME}/shell/aliases" ] && source "${XDG_CONFIG_HOME}/shell/aliases"
+[ -f "${XDG_CONFIG_HOME}/shell/functions" ] && source "${XDG_CONFIG_HOME}/shell/functions"
+[ -f "${XDG_CONFIG_HOME}/shell/rc" ] && source "${XDG_CONFIG_HOME}/shell/rc"
+
 # plugins
 source $XDG_CONFIG_HOME/zsh/catppuccin-zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 
@@ -47,9 +55,6 @@ autoload -Uz compinit && compinit
 # plugin options
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# initialize stuff
-eval $(thefuck --alias)
-eval "$(zoxide init zsh)"
 
 # fix ctrl+l in tmux
 if [ ! -z "$TMUX" ]; then
@@ -61,12 +66,6 @@ if [ ! -z "$TMUX" ]; then
   zle -N clear-scrollback-and-screen
   bindkey -v '^L' clear-scrollback-and-screen
 fi
-
-
-# aliases and functions
-[ -f "${XDG_CONFIG_HOME}/shell/rc" ] && source "${XDG_CONFIG_HOME}/shell/rc"
-[ -f "${XDG_CONFIG_HOME}/shell/functions" ] && source "${XDG_CONFIG_HOME}/shell/functions"
-[ -f "${XDG_CONFIG_HOME}/shell/aliases" ] && source "${XDG_CONFIG_HOME}/shell/aliases"
 
 
 # disable vim mode
