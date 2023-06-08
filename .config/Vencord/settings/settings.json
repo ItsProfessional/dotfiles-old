@@ -448,12 +448,14 @@
             "enabled": true
         },
         "ShowConnections": {
-            "enabled": false
+            "enabled": true,
+            "iconSpacing": 1,
+            "iconSize": 32
         },
         "ShowMeYourName": {
             "enabled": true,
-            "mode": "user-nick",
-            "inReplies": false
+            "mode": "user",
+            "inReplies": true
         },
         "TextReplace": {
             "enabled": false
@@ -465,7 +467,7 @@
             "enabled": false
         },
         "ValidUser": {
-            "enabled": false
+            "enabled": true
         },
         "VencordToolbox": {
             "enabled": false
