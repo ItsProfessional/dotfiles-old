@@ -5,24 +5,24 @@
 
   pathremove() {
     # Delete path by parts so we can never accidentally remove sub paths
-    if [ "$PATH" = "$1" ]; then export PATH=""; fi
+    if [ "$PATH" = "$1" ]; then PATH=""; fi
 
-    export PATH=${PATH//":$1:"/":"} # delete any instances in the middle
-    export PATH=${PATH/#"$1:"/} # delete any instance at the beginning
-    export PATH=${PATH/%":$1"/} # delete any instance in the at the end
+    PATH=${PATH//":$1:"/":"} # delete any instances in the middle
+    PATH=${PATH/#"$1:"/} # delete any instance at the beginning
+    PATH=${PATH/%":$1"/} # delete any instance in the at the end
   }
 
   pathappend() {
     pathremove "$1"
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-      export PATH="${PATH:+"$PATH:"}$1"
+      PATH="${PATH:+"$PATH:"}$1"
     fi
   }
 
   pathprepend() {
     pathremove "$1"
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-      export PATH="$1${PATH:+":$PATH"}"
+      PATH="$1${PATH:+":$PATH"}"
     fi
   }
 
@@ -53,6 +53,8 @@
     export VISUAL=nvim
     export EDITOR=nvim
     export DIFFPROG="nvim -d"
+  # Force PATH to be environment
+  export PATH
 
 # GTK/QT stuff
     # This file is written to by nwg-look
