@@ -111,6 +111,7 @@ alias za='zathura'
 
 # other programs
 alias tm='tmux'
+alias nf='fastfetch' # neofetch
 
 # typos
 # cd
