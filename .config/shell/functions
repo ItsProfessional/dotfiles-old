@@ -61,7 +61,8 @@ c() {
   # common shell files
   if [ "$1" = "a" ]; then $EDITOR ~/.config/shell/aliases; fi
   if [ "$1" = "env" ]; then $EDITOR ~/.config/shell/env; fi
-  if [ "$1" = "fn" ]; then $EDITOR ~/.config/shell/functions; fi
+  if [ "$1" = "ce" ]; then $EDITOR ~/.config/shell/env; fi
+  if [ "$1" = "cfn" ]; then $EDITOR ~/.config/shell/functions; fi
   if [ "$1" = "cl" ]; then $EDITOR ~/.config/shell/login; fi
   if [ "$1" = "cp" ]; then $EDITOR ~/.config/shell/profile; fi
   if [ "$1" = "cr" ]; then $EDITOR ~/.config/shell/rc; fi
