@@ -41,6 +41,11 @@
   # Force PATH to be environment
   export PATH
 
+# Editor
+    export VISUAL=nvim
+    export EDITOR=nvim
+    export DIFFPROG="nvim -d"
+
 # GTK/QT stuff
     # This file is written to by nwg-look
     config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
@@ -50,6 +55,8 @@
       export XCURSOR_THEME="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
       export XCURSOR_SIZE="$(grep 'gtk-cursor-theme-size' "$config" | sed 's/.*\s*=\s*//')"
     fi
+
+    export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Change dotfile locations
     # History files
