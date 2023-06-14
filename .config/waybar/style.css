@@ -110,6 +110,20 @@ label:focus {
   animation-direction: alternate;
 }
 
+
+#idle_inhibitor {
+  padding: 0 12px;
+}
+
+
+#idle_inhibitor.activated {
+  background-color: #0263b8
+}
+
+#idle_inhibitor.activated {
+  background-color: #0263b8
+}
+
 #network.disconnected {
   background-color: rgba(240, 61, 61, 0.2);
 }
