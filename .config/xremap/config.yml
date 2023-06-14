@@ -20,6 +20,18 @@ modmap:
         press: { launch: ["sh", "-c", "wl-copy -pc && xsel -nc"] }
         release: { launch: ["sh", "-c", "wl-copy -pc && xsel -nc"] }
 
+  - name: Geometry Dash
+    remap:
+      BTN_RIGHT: BTN_LEFT
+      BTN_MIDDLE: BTN_LEFT
+
+      H: Left
+      L: Right
+
+    application:
+      only: geometrydash.exe
+
+
 keymap:
   - name: Global
     exact_match: true 
@@ -92,3 +104,4 @@ keymap:
 
     application:
       only: chromium
+
