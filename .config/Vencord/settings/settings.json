@@ -66,7 +66,7 @@
             "enabled": false
         },
         "CallTimer": {
-            "enabled": true
+            "enabled": false
         },
         "ColorSighted": {
             "enabled": true
@@ -75,7 +75,7 @@
             "enabled": true
         },
         "DisableDMCallIdle": {
-            "enabled": true
+            "enabled": false
         },
         "EmoteCloner": {
             "enabled": false
@@ -95,7 +95,7 @@
             "transformCompoundSentence": false
         },
         "FixInbox": {
-            "enabled": true
+            "enabled": false
         },
         "ForceOwnerCrown": {
             "enabled": false
@@ -113,7 +113,7 @@
             "enabled": false
         },
         "MemberCount": {
-            "enabled": true
+            "enabled": false
         },
         "MessageLinkEmbeds": {
             "enabled": true,
@@ -133,10 +133,10 @@
             "ignoreBlockedMessages": false
         },
         "NoDevtoolsWarning": {
-            "enabled": true
+            "enabled": false
         },
         "NoF1": {
-            "enabled": true
+            "enabled": false
         },
         "NoRPC": {
             "enabled": true
@@ -144,12 +144,12 @@
         "NoReplyMention": {
             "enabled": true,
             "exemptList": "1234567890123445,1234567890123445",
-            "userList": "1234567890123445,1234567890123445",
+            "userList": "",
             "shouldPingListed": true,
-            "inverseShiftReply": false
+            "inverseShiftReply": true
         },
         "NoScreensharePreview": {
-            "enabled": true
+            "enabled": false
         },
         "NoSystemBadge": {
             "enabled": true
@@ -174,10 +174,10 @@
             "enabled": false
         },
         "RevealAllSpoilers": {
-            "enabled": true
+            "enabled": false
         },
         "ReverseImageSearch": {
-            "enabled": true
+            "enabled": false
         },
         "richerCider": {
             "enabled": false
@@ -219,7 +219,7 @@
             "enabled": true
         },
         "TypingIndicator": {
-            "enabled": true,
+            "enabled": false,
             "includeMutedChannels": false
         },
         "TypingTweaks": {
@@ -238,10 +238,10 @@
             "enabled": true
         },
         "ViewIcons": {
-            "enabled": true
+            "enabled": false
         },
         "VolumeBooster": {
-            "enabled": true
+            "enabled": false
         },
         "WhoReacted": {
             "enabled": false
@@ -266,7 +266,7 @@
             "enabled": false
         },
         "F8Break": {
-            "enabled": true
+            "enabled": false
         },
         "Fart2": {
             "enabled": false
@@ -317,13 +317,14 @@
             "enabled": true
         },
         "QuickReply": {
-            "enabled": true
+            "enabled": false,
+            "shouldMention": 2
         },
         "ReadAllNotificationsButton": {
-            "enabled": true
+            "enabled": false
         },
         "ServerListIndicators": {
-            "enabled": true,
+            "enabled": false,
             "mode": 2
         },
         "SpotifyShareCommands": {
@@ -333,7 +334,7 @@
             "enabled": false
         },
         "VcNarrator": {
-            "enabled": true
+            "enabled": false
         },
         "ViewRaw": {
             "enabled": true
@@ -351,7 +352,7 @@
             "enabled": true
         },
         "SearchReply": {
-            "enabled": true
+            "enabled": false
         },
         "GifPaste": {
             "enabled": false
@@ -421,10 +422,13 @@
             "enabled": false
         },
         "ImageZoom": {
-            "enabled": true
+            "enabled": true,
+            "size": 100,
+            "zoom": 2,
+            "saveZoomValues": true
         },
         "UserVoiceShow": {
-            "enabled": true
+            "enabled": false
         },
         "NoChannelEmojis": {
             "enabled": true
@@ -502,7 +506,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1686206684880
+        "settingsSyncVersion": 1686501043775
     },
     "macosTranslucency": false,
     "disableMinSize": false
