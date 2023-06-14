@@ -1,7 +1,8 @@
 #!/bin/sh
 
-# Start the wayland compositor
+# Start the graphical environment
 if [ -z "${DISPLAY}" ] && [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ] && [ "$(tty)" = "/dev/tty1" ]; then
+  # exec startx
   exec ~/scripts/startw Hyprland
 fi
 
