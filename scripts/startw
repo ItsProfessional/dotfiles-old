@@ -24,6 +24,6 @@ cd ~
     # Fix graphical java programs being blank
     export _JAVA_AWT_WM_NONREPARENTING=1
 
-exec "$@"
+exec "$@" 2>&1 > /dev/null
 exit
 
