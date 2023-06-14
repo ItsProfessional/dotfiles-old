@@ -4,9 +4,8 @@ handle() {
   case $1 in
     workspace*)
       workspace=$(echo "$1" | tr -d -C '[:digit:]')
-      #echo $workspace
       if [ "$(hyprctl activewindow -j)" = "{}" ]; then
-        ~/scripts/hyprland/focus-cursor
+        ~/scripts/hyprland/focus-topleft-workspace
       fi
 
       ;;

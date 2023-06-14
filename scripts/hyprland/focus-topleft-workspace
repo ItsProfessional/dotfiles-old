@@ -1,0 +1,40 @@
+#!/bin/env python
+
+import subprocess
+import json
+
+def hyprctl(command):
+    result = subprocess.run("hyprctl "+command, stdout=subprocess.PIPE, shell=True).stdout
+
+    return result
+
+def hyprctl_json(command):
+    return json.loads(hyprctl(command+" -j"))
+
+def main():
+    ws = hyprctl_json("activeworkspace")["id"]
+
+    pid = 0
+    last_pid = -1
+
+    while pid != last_pid: # continue until pid stops changing
+        last_pid = pid
+
+        # get pid of some window in workspace
+        clients = hyprctl_json("clients")
+        for client in clients:
+            client_ws = client["workspace"]["id"]
+            if client_ws == ws:
+                pid = client["pid"]
+                break
+
+        # select that window
+        hyprctl("dispatch focuswindow pid:" + str(pid))
+
+        # move left and up (until pid stops changing)
+        hyprctl("dispatch movefocus l")
+        hyprctl("dispatch movefocus u")
+
+if __name__ == "__main__":
+    main()
+
