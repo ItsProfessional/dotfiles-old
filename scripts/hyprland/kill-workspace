@@ -21,11 +21,8 @@ def main():
         if client_workspaceid == workspace_id:
             pids.append(client["pid"])
 
-    print(pids)
     for pid in pids:
         x = hyprctl("dispatch closewindow pid:" + str(pid))
-        print(x)
-
 
 if __name__ == "__main__":
     main()
