@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#class=$(swaymsg -t get_tree | jq -r '.. | select(.type?) | select(.focused==true)|.app_id')
+class=$(hyprctl activewindow -j | jq -r .class)
+echo "$class"
+
+if [ $class != "org.keepassxc.KeePassXC" ]; then # do not store if copied from KeePassXC
+  clipman store --no-persist
+fi
+
