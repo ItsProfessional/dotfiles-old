@@ -5,7 +5,7 @@
 
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "pulseaudio", "backlight", "disk", "battery", "clock", "tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "backlight", "disk", "battery", "clock", "tray"],
 
     "wlr/workspaces": {
          "format": "{icon}",
