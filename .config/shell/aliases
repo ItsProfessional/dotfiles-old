@@ -65,7 +65,7 @@ alias fix='fuck'
 alias f='fuck'
 alias rdd='rmdir'
 alias rd='rm -rfv'
-md() { mkdir -pv $@ && cd $@ }
+alias md='mkdir'
 alias ex='export'
 alias cmd='type'
 alias fdu='du -h --max-depth=1'
