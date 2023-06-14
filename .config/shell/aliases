@@ -137,6 +137,17 @@ alias lcera='clear'
 alias lcrea='clear'
 alias iclear='clear'
 
+# ls
+alias sl='ls'
+alias l='ls'
+
+
+
+
+
+
+
+
 
 # git aliases
 alias g='git'
