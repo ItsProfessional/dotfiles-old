@@ -1,7 +1,7 @@
 # Locker (pauses media before locking aswell)
 lock "playerctl pause; swaylock"
 
-# Lock before suspending (includes lid close, since I have that set to suspend)
+# Lock before suspending (includes lid close, since it suspends, by default)
 before-sleep "swaylock"
 
 # Dim screen
