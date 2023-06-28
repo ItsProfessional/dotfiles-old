@@ -106,3 +106,5 @@
     # needed for ssh-agent
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
 
+    # disable git filter-branch warning
+    export FILTER_BRANCH_SQUELCH_WARNING=1
