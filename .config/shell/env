@@ -37,6 +37,7 @@
 
   # Add scripts folder to path
   pathprepend "$HOME"/scripts
+  pathprepend "$HOME"/scripts/wrappers
 
   # Force PATH to be environment
   export PATH

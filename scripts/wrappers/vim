@@ -1,0 +1,6 @@
+#!/bin/sh
+# Wrapper script for vim, which changes the location of ~/.viminfo
+
+# /bin/vim -i NONE $@
+/bin/vim -i "$XDG_DATA_HOME"/viminfo $@
+

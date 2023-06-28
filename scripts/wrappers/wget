@@ -1,0 +1,5 @@
+#!/bin/sh
+# Wrapper script for wget, which changes the location of ~/.wget-hsts
+
+/usr/bin/wget --hsts-file="$XDG_DATA_HOME/wget-hsts" "$@"
+

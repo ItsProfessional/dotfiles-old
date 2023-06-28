@@ -1,0 +1,5 @@
+#!/bin/env bash
+# Wrapper script for bemenu
+
+/usr/bin/bemenu $(< ~/.config/bemenu/config) "$@"
+
