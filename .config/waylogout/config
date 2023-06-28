@@ -4,7 +4,7 @@ reboot-command=systemctl reboot
 suspend-command=systemctl suspend
 hibernate-command=systemctl hibernate
 logout-command=~/scripts/logout
-lock-command=loginctl lock-session $XDG_SESSION_ID
+lock-command=~/scripts/lock
 
 # basic
 scroll-sensitivity=9999
