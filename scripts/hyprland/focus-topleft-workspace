@@ -5,7 +5,6 @@ import json
 
 def hyprctl(command):
     result = subprocess.run("hyprctl "+command, stdout=subprocess.PIPE, shell=True).stdout
-
     return result
 
 def hyprctl_json(command):
