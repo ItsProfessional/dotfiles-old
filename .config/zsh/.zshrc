@@ -32,6 +32,7 @@ setopt inc_append_history
 setopt share_history
 setopt interactivecomments
 setopt auto_cd
+setopt globdots
 
 # plugins
 source $XDG_CONFIG_HOME/zsh/catppuccin-zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
