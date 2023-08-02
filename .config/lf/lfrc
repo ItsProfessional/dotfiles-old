@@ -23,8 +23,9 @@ cmd mkfile ${{
 }}
 
 cmd setwallpaper ${{
-    cp "$f" ~/.config/wall.jpg
-    hyprctl dispatch exec "swww img ~/.config/wall.jpg --transition-type=center --transition-duration=0.3" > /dev/null
+    #cp "$f" ~/.config/wall.jpg
+    ln -sf "$f" ~/.config/wall.jpg
+    #hyprctl dispatch exec "swww img ~/.config/wall.jpg --transition-type=center --transition-duration=0.3" > /dev/null
 }}
 
 # Archive bindings
