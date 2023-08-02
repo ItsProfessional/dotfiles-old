@@ -276,3 +276,10 @@ alias countf='for t in files links directories; do echo \`find . -type \${t:0:1}
 # show all logs in /var/log
 alias logs="doas find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 
+# help alias
+alias bathelp='bat --plain --language=help'
+help() {
+    "$@" --help 2>&1 | bathelp
+}
+alias h='help'
+
