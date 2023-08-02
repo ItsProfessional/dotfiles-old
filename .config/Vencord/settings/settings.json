@@ -43,7 +43,7 @@
             "enabled": true
         },
         "AnonymiseFileNames": {
-            "enabled": true,
+            "enabled": false,
             "method": 0,
             "randomisedLength": 7
         },
@@ -235,7 +235,7 @@
             "enabled": false
         },
         "VoiceChatDoubleClick": {
-            "enabled": true
+            "enabled": false
         },
         "ViewIcons": {
             "enabled": false
@@ -281,7 +281,7 @@
             "enabled": false
         },
         "KeepCurrentChannel": {
-            "enabled": true
+            "enabled": false
         },
         "LastFMRichPresence": {
             "enabled": false
@@ -314,7 +314,7 @@
             "enabled": false
         },
         "QuickMention": {
-            "enabled": true
+            "enabled": false
         },
         "QuickReply": {
             "enabled": false,
@@ -363,7 +363,8 @@
             "groups": true,
             "servers": true,
             "friends": true,
-            "friendRequestCancels": true
+            "friendRequestCancels": true,
+            "notices": false
         },
         "Wikisearch": {
             "enabled": false
@@ -449,7 +450,7 @@
             "enabled": false
         },
         "ShowAllMessageButtons": {
-            "enabled": true
+            "enabled": false
         },
         "ShowConnections": {
             "enabled": true,
@@ -493,6 +494,24 @@
         },
         "NoProfileThemes": {
             "enabled": false
+        },
+        "BiggerStreamPreview": {
+            "enabled": false
+        },
+        "FavoriteGifSearch": {
+            "enabled": false
+        },
+        "MutualGroupDMs": {
+            "enabled": false
+        },
+        "OpenInApp": {
+            "enabled": false
+        },
+        "UnsuppressEmbeds": {
+            "enabled": false
+        },
+        "VoiceMessages": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -506,7 +525,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1686501043775
+        "settingsSyncVersion": 1690926658803
     },
     "macosTranslucency": false,
     "disableMinSize": false
