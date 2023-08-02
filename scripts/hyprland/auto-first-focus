@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Select automatically when the script was started (i.e. on startup)
+~/scripts/hyprland/focus-topleft-workspace
+
 handle() {
   case $1 in
     workspace*)
