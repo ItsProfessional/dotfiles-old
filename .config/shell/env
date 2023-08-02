@@ -98,6 +98,7 @@
 
     # man
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export MANROFFOPT="-c" # fix formatting issues
 
     # less
     export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
