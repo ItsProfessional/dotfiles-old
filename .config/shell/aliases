@@ -265,7 +265,7 @@ alias rb='shutdown -r now'
 alias rbb='shutdown -r -n now'
 
 # search history
-alias h='history | grep '
+alias hs='history | grep '
 
 # search files in the current folder
 alias sf='find . | grep '
