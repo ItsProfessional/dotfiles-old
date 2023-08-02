@@ -8,9 +8,9 @@ indicator-caps-lock
 indicator-idle-visible
 
 # wallpaper
-#image=~/.config/wall.jpg
+image=~/.config/wall.jpg
 scaling=fill
-color=#1E1E2E
+color=1E1E2E
 
 # time/date formats
 timestr=%r
@@ -32,11 +32,11 @@ text-ver-color=FFFFFF
 text-wrong-color=FFFFFF
 
 # inside color
-inside-color=1e1e2e
-inside-clear-color=1e1e2e
-inside-caps-lock-color=1e1e2e
-inside-ver-color=1e1e2e
-inside-wrong-color=1e1e2e
+inside-color=1e1e2ebd
+inside-clear-color=1e1e2ebd
+inside-caps-lock-color=1e1e2ebd
+inside-ver-color=1e1e2ebd
+inside-wrong-color=1e1e2ebd
 
 # ring color
 ring-color=313244
