@@ -10,11 +10,11 @@ send_notification() {
 
 case $1 in
 up)
-  brillo -q -u 150000 -A 2
+  brillo -q -u 150000 -A 0.3
 	send_notification "$1"
 	;;
 down)
-  brillo -q -u 150000 -U 2
+  brillo -q -u 150000 -U 0.3
 	send_notification "$1"
 	;;
 esac
