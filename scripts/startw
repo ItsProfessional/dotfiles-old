@@ -8,9 +8,11 @@ fi
 cd ~
 
 # XDG Session: https://man.sr.ht/~kennylevinsen/greetd/#how-to-set-xdg_session_typewayland
-    export XDG_CURRENT_DESKTOP=Hyprland
     export XDG_SESSION_TYPE=wayland
-    export XDG_SESSION_DESKTOP=Hyprland
+    if [ "$1" = "Hyprland" ]; then
+      export XDG_CURRENT_DESKTOP=Hyprland
+      export XDG_SESSION_DESKTOP=Hyprland
+    fi
 
 # Force native wayland
     export MOZ_ENABLE_WAYLAND=1
