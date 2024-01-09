@@ -1,0 +1,25 @@
+#!/bin/sh
+
+update_repo() {
+  git -C $1 pull
+}
+
+update_repo ~/.config/nvim
+update_repo ~/.config/zsh/catppuccin-zsh-syntax-highlighting
+update_repo ~/.config/zsh/zsh-auto-notify
+
+for _dir in `find ~/repos/_linked/ -mindepth 1 -maxdepth 1 -type d`;
+do
+  update_repo $_dir;
+done
+
+
+update_repo ~/repos/docker-py-revanced
+update_repo ~/repos/pyinstxtractor
+update_repo ~/repos/uAssets
+
+#repos/*
+#dev/*
+#~/.config/tmux/plugins/*
+#~/.config/zsh/gitfast
+

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "# Note: This config file is for dnscrypt-proxy's generate-domains-blocklist.py script\n" > /etc/dnscrypt-proxy/generate-domains-blocklist.conf
+
+curl -s "https://v.firebog.net/hosts/lists.php?type=tick" >> /etc/dnscrypt-proxy/generate-domains-blocklist.conf
+curl -s "https://v.firebog.net/hosts/lists.php?type=adult" >> /etc/dnscrypt-proxy/generate-domains-blocklist.conf
+echo "file:/etc/dnscrypt-proxy/generate-domains-blocklist-user-blocklist.txt" >> /etc/dnscrypt-proxy/generate-domains-blocklist.conf
+
+generate-domains-blocklist -c /etc/dnscrypt-proxy/generate-domains-blocklist.conf -a /etc/dnscrypt-proxy/domains-allowlist.txt -r /etc/dnscrypt-proxy/domains-time-restricted.txt -o /etc/dnscrypt-proxy/blocked-names.txt 
+
+systemctl restart dnscrypt-proxy.service
+

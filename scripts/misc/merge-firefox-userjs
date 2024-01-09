@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cat ~/repos/_linked/Betterfox/user.js ~/repos/_linked/Firefox-UI-Fix/user.js ~/.mozilla/firefox/customized/user.js.personal > ~/.mozilla/firefox/customized/user.js
+
