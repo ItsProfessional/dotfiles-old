@@ -45,8 +45,10 @@ c() {
   if [ "$1" = "zl" ]; then $EDITOR ~/.config/zsh/.zlogin; fi
 
   # wm-related
+  if [ "$1" = "st" ]; then $EDITOR ~/scripts/startw; fi
   if [ "$1" = "sw" ]; then $EDITOR ~/.config/sway/config; fi
   if [ "$1" = "hl" ]; then $EDITOR ~/.config/hypr/hyprland.conf; fi
+  if [ "$1" = "qt" ]; then $EDITOR ~/.config/qtile/config.py.; fi
   if [ "$1" = "hp" ]; then $EDITOR ~/.config/hypr/hyprpaper.conf; fi
   if [ "$1" = "wp" ]; then $EDITOR ~/.config/wpaperd/wallpaper.toml; fi
   if [ "$1" = "init" ]; then $EDITOR ~/.local/bin/startw; fi
@@ -57,10 +59,12 @@ c() {
   if [ "$1" = "wls" ]; then $EDITOR ~/.config/wlogout/style.css; fi
   if [ "$1" = "han" ]; then $EDITOR ~/.config/hyprland-autoname-workspaces/config.toml; fi
   if [ "$1" = "lf" ]; then $EDITOR ~/.config/lf/lfrc; fi
+  if [ "$1" = "bm" ]; then $EDITOR ~/.config/bemenu/config; fi
 
   # common shell files
   if [ "$1" = "a" ]; then $EDITOR ~/.config/shell/aliases; fi
   if [ "$1" = "env" ]; then $EDITOR ~/.config/shell/env; fi
+  if [ "$1" = "fn" ]; then $EDITOR ~/.config/shell/functions; fi
   if [ "$1" = "ce" ]; then $EDITOR ~/.config/shell/env; fi
   if [ "$1" = "cfn" ]; then $EDITOR ~/.config/shell/functions; fi
   if [ "$1" = "cl" ]; then $EDITOR ~/.config/shell/login; fi

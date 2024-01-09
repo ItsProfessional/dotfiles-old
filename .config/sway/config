@@ -32,7 +32,7 @@ set $ws10 "10"
 ### Output configuration
 
     output * {
-        bg ~/.config/wall.png fill
+        bg ~/.config/wall.jpg fill
     }
 
 ### Idle configuration

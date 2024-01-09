@@ -9,6 +9,12 @@ send_notification() {
 	notify-send -a "changevolume" -u low -r 9993 -h int:value:"$volume" -i "volume-$1" "Volume: ${volume}%"
 }
 
+send_notification_mic() {
+  volume=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | sed -n 's/Volume: \([0-9.]*\).*/\1/p' | awk '{printf "%.0f", $1 * 100}')
+  echo $volume
+	notify-send -a "changevolume" -u low -r 9993 -h int:value:"$volume" -i "volume-$1" "Volume: ${volume}%"
+}
+
 case $1 in
 up)
 	# Set the volume on (if it was muted)
@@ -21,12 +27,20 @@ down)
   wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
 	send_notification "$1"
 	;;
-mute)
+mutevol)
   wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
   if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q "[MUTED]"; then
-		notify-send -a "changevolume" -t 2000 -r 9993 -u low -i "volume-mute" "Muted"
+		notify-send -a "changevolume" -t 2000 -r 9993 -u low -i "volume-mute" "Volume Muted"
   else 
 		send_notification up
+  fi
+	;;
+mutemic)
+  wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+  if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q "[MUTED]"; then
+		notify-send -a "changevolume" -t 2000 -r 9993 -u low -i "mic-mute" "Mic Muted"
+  else 
+		send_notification_mic up
   fi
 	;;
 esac

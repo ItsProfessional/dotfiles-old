@@ -22,12 +22,6 @@ cmd mkfile ${{
   $EDITOR $ans
 }}
 
-cmd setwallpaper ${{
-    #cp "$f" ~/.config/wall.jpg
-    ln -sf "$f" ~/.config/wall.jpg
-    #hyprctl dispatch exec "swww img ~/.config/wall.jpg --transition-type=center --transition-duration=0.3" > /dev/null
-}}
-
 # Archive bindings
 cmd unarchive ${{
   case "$f" in
@@ -78,7 +72,6 @@ map <enter> open
 map R reload
 map mf mkfile
 map md mkdir
-map bg setwallpaper
 map c clear
 
 # Movement

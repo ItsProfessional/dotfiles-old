@@ -11,16 +11,23 @@ config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.hide_mouse_cursor_when_typing = false
 config.default_cursor_style = 'SteadyBar'
+config.enable_wayland = false
 
 -- color
 config.color_scheme = 'Catppuccin Mocha'
 
 -- font
-config.font = wezterm.font('JetBrainsMono Nerd Font', { weight = "Regular" })
+config.font = wezterm.font_with_fallback {'JetBrainsMono', 'Noto Sans', 'FontAwesome', 'sans-serif'}
 config.font_size = 11
 
--- This is required in the wezterm config for the tmux config described here to work: https://unix.stackexchange.com/a/96936
 config.keys = {
+  {
+    key = 'r',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.ReloadConfiguration,
+  },
+
+  -- This is required in the wezterm config for the tmux config described here to work: https://unix.stackexchange.com/a/96936
   { key = "0", mods = "CTRL", action = act.SendString '\x1b[27;5;48~' },
   { key = "1", mods = "CTRL", action = act.SendString '\x1b[27;5;49~' },
   { key = "2", mods = "CTRL", action = act.SendString '\x1b[27;5;50~' },

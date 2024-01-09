@@ -1,5 +1,4 @@
 # general
-daemonize
 ignore-empty-password
 show-failed-attempts
 line-uses-inside
@@ -8,7 +7,8 @@ indicator-caps-lock
 indicator-idle-visible
 
 # wallpaper
-image=~/.config/wall.jpg
+image=~/pictures/wallpapers/Black-Landscape-Dark-Nature-Colorized.png
+
 scaling=fill
 color=1E1E2E
 
@@ -21,7 +21,7 @@ indicator-radius=90
 indicator-thickness=8
 
 # font
-font=JetBrains Mono Nerd Font
+font=JetBrainsMono
 font-size=15
 
 # text color

@@ -1,4 +1,16 @@
 #!/bin/sh
 
+playerctl_status=$(playerctl status)
+playing=no
+if [ "$playerctl_status" = "Playing" ]; then
+  playing=yes
+fi
+
+echo $paused
+
+[ $playing = "yes" ] && playerctl pause
+
 swaylock
+
+[ $playing = "yes" ] && playerctl play
 

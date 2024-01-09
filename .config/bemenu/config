@@ -17,4 +17,5 @@
 
 # Vim bindings
 --binding vim
+--vim-esc-exits
 
